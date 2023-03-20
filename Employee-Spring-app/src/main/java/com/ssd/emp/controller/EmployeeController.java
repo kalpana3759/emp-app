@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/api/emp")
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
 	private EmployeeValidateService service;
 	
-	@PostMapping("/emp")
+	@PostMapping("/employees")
 	public ResponseEntity<?>saveEmployee(@Validated  @RequestBody EmployeeDto dto,BindingResult bindingResult){
 		
 		if (service.validateData(bindingResult) != null) {
@@ -35,10 +35,8 @@ public class EmployeeController {
 		}
 
 	}
-	@GetMapping("/emp/{id}")
+	@GetMapping("/employees/{id}")
 	public ResponseEntity<?>getEmployeeTaxDeductionCurrentYear(@PathVariable("id")Long id){
-		
-		
 		return new ResponseEntity<Double>(employeeService.getEmployeeTaxDeductionCurrentYear(id),HttpStatus.OK);
 		
 	}
