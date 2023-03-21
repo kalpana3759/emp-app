@@ -24,10 +24,10 @@ public class Employee {
 	@Column(nullable = false)
 	private String phoneNo;
 	@Column(nullable = false)
-	private Date doj;
+	private String doj;
 	@Column(nullable = false)
 	private Double sal;
-	public Employee(Long emp_id, String firstName, String lastName, String email, String phoneNo, Date doj,
+	public Employee(Long emp_id, String firstName, String lastName, String email, String phoneNo, String doj,
 			Double sal) {
 		super();
 		this.emp_id = emp_id;
@@ -71,10 +71,10 @@ public class Employee {
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	public Date getDoj() {
+	public String getDoj() {
 		return doj;
 	}
-	public void setDoj(Date doj) {
+	public void setDoj(String doj) {
 		this.doj = doj;
 	}
 	public Double getSal() {
